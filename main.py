@@ -25,7 +25,7 @@ class BookStore:
                 
                 choice = int(choice)
                 if choice not in range(1, 6):
-                    raise InvalidChoiceError("Apni thik input den nai. 1 theke 5 er moddhe number dite hobe.")
+                    raise ValueError("Apni thik input den nai.  value error. 1 theke 5 er moddhe number dite hobe.")
                 
                 if choice == 1:
                   
@@ -46,7 +46,8 @@ class BookStore:
                     sys.exit()
             except InvalidChoiceError as e:
                 print(f"Sorry! {e}")
-                
+            except ValueError as valueerror:
+                print(valueerror)
 if __name__ == "__main__":
     cli = BookStore()
     cli.show_menu()
