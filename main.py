@@ -1,11 +1,13 @@
 import sys
 from add_book import TotalManager  
 from remove_book import BookRemover  
+from view_books import BookViewer
 
 class BookStore:
     def __init__(self):
         self.manager = TotalManager()  
-        self.remover = BookRemover()  
+        self.remover = BookRemover()
+        self.viewer = BookViewer()
 
     def show_menu(self):
         # Unlimited loop until the user selects exit
@@ -32,7 +34,7 @@ class BookStore:
                     self.manager.add_book()
                 elif choice == 2:
                     print("Choice 2: View selected")
-                   
+                    self.viewer.view_books()
                 elif choice == 3:
                     print("Choice 3: Search selected")
                 elif choice == 4:
