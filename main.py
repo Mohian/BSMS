@@ -1,13 +1,12 @@
 import sys
-
-class InvalidChoiceError(Exception):
-    pass
+from add_book import TotalManager  # Importing the class from add_books.py
 
 class BookStore:
     def __init__(self):
-        pass
+        self.manager = TotalManager()  # Creating an instance of TotalManager
+
     def show_menu(self):
-        #unlimited time menu show hobe jotokkhon na 5 press kore exit kora hocche. 
+        # Unlimited loop until the user selects exit
         while True:
             print("\n=== Book Store Management System ===")
             print("1. Add")
@@ -19,35 +18,29 @@ class BookStore:
             choice = input("Enter your choice (1-5): ")
             
             try:
-                #error message 
-                if not choice.isnumeric():
-                    raise InvalidChoiceError("eta kono number noy! ekti number input din")
+                if not choice.isnumeric():  # Checking if input is a number
+                    raise ValueError("Eta kono number noy! Ekti number input din.")
                 
                 choice = int(choice)
-                if choice not in range(1, 6):
-                    raise ValueError("Apni thik input den nai.  value error. 1 theke 5 er moddhe number dite hobe.")
+                if choice not in range(1, 6):  # Ensuring input is between 1 and 5
+                    raise ValueError("Apni thik input den nai. Value error. 1 theke 5 er moddhe number dite hobe.")
                 
                 if choice == 1:
-                  
-                   print("choice 1 Add selected")
+                    print("Choice 1: Add selected")
+                    self.manager.add_book()  # Calling add_book() method
                 elif choice == 2:
-                   
-                    print("choice 2 view selected")
+                    print("Choice 2: View selected")
                 elif choice == 3:
-                    print("choice 3 search selected")
-                   
+                    print("Choice 3: Search selected")
                 elif choice == 4:
-                    print("choice 4 delete selected")
-
-                    
+                    print("Choice 4: Remove selected")
                 elif choice == 5:
-                    
-                    print("choice 5 save data and exit selected")
+                    print("Choice 5: Save data and exit selected")
                     sys.exit()
-            except InvalidChoiceError as e:
-                print(f"Sorry! {e}")
+            
             except ValueError as valueerror:
-                print(valueerror)
+                print(f"Sorry!! {valueerror}")
+
 if __name__ == "__main__":
     cli = BookStore()
     cli.show_menu()
