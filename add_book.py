@@ -40,6 +40,8 @@ class TotalManager:
         author=input("enter author name:")
         genre=input("enter genre: ")
         stock=input("enter the stock: ")
+        price=input("enter the price")
+        publisher=input("enter the publisher")
 
         while True:
             year=input("publication date (DD/MM/YYYY format): ")
@@ -53,7 +55,9 @@ class TotalManager:
             "author": author,
             "genre": genre,
             "year": year,
-            "stock":stock
+            "stock":stock,
+            "price":price,
+            "publisher":publisher
         }
 
         self._savebooks()

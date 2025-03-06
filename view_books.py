@@ -27,6 +27,8 @@ class BookViewer:
             print(f"Author: {book.get('author', 'N/A')}")
             print(f"Genre: {book.get('genre', 'N/A')}")
             print(f"Stock count: {book.get('stock', 'N/A')}")
+            print(f"publisher: {book.get('publisher', 'N/A')}")
+            print(f"price {book.get('price', 'N/A')}")
             print(f"ISBN: {isbn}\n")
             #print("\n")
 
